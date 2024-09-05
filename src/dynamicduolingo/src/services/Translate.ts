@@ -1,19 +1,18 @@
 import config from "../config/config";
 import ApiConnection from "../contexts/ApiConnection";
 import DatabaseConnection from "../contexts/DatabaseConnection";
+import { IApiConnection } from "../contexts/IApiConnection";
+import { ETargetLanguages } from "../interfaces/ETargetLanguages";
 
 class DynamicDuolingo {
     private apiConnection: IApiConnection = new ApiConnection();
     private databaseConnection: IDatabaseConnection = new DatabaseConnection();
     public correctedPhase = '';
     public lastTraduction = '';
-    public availableTargetLanguages: Language[] = [];
     construtor() {
-        this.apiConnection.getLanguages().then(x => this.availableTargetLanguages = x);
     }
 
-
-    public async translate(phrase: string, targetLanguage: string): Promise<string> {
+    public async translate(phrase: string, targetLanguage: ETargetLanguages): Promise<string> {
         const tokens = phrase.split("");
         let translated: string = '', correctPhase: string = '';
         tokens.forEach(async element => {
@@ -64,8 +63,3 @@ class DynamicDuolingo {
         return memo[word.length][word2.length];
     }
 }
-
-let duolingo = new DynamicDuolingo();
-duolingo.translate("irmau du ceu", "en-US");
-console.log("Frase corrigida: " + duolingo.correctedPhase);
-console.log("Frase traduzida: " + duolingo.lastTraduction);
