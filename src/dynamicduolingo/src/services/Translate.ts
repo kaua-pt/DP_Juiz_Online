@@ -7,7 +7,10 @@ class DynamicDuolingo {
     private databaseConnection: IDatabaseConnection = new DatabaseConnection();
     public correctedPhase = '';
     public lastTraduction = '';
-    construtor() { }
+    public availableTargetLanguages: Language[] = [];
+    construtor() {
+        this.apiConnection.getLanguages().then(x => this.availableTargetLanguages = x);
+    }
 
 
     public async translate(phrase: string, targetLanguage: string): Promise<string> {
