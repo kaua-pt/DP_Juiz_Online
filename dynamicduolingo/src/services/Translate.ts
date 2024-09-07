@@ -63,3 +63,6 @@ class DynamicDuolingo {
         return memo[word.length][word2.length];
     }
 }
+
+
+export default DynamicDuolingo;

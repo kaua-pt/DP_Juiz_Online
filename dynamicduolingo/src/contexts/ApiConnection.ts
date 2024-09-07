@@ -5,20 +5,9 @@ import { IApiConnection } from './IApiConnection';
 
 export default class ApiConnection implements IApiConnection {
     async translate(phrase: string, targetLanguage: ETargetLanguages): Promise<string> {
-
-        const body = {
-            "T": phrase,
-            "SL": ETargetLanguages.PtBr,
-            "TL": targetLanguage
-        };
-
         try {
-            const response = await axios.post(config.TRANSLATE_API_URL, body, {
-                headers: {
-                    'Authorization': config.API_KEY,
-                    'Content-type': 'application/json'
-                }
-            });
+            const sufix = `text=${phrase}&source_lang=br&target_lang=fr`;
+            const response = await axios.get(config.TRANSLATE_API_URL + sufix);
             return response.data.text[0]
         } catch (error) {
             console.error('Erro ao fazer a requisição:', error);
