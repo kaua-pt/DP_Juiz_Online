@@ -21,8 +21,7 @@ class DynamicDuolingo {
             correctPhase += await this.sequenceAlignment(element) + " ";
 
         translated = await this.apiConnection.translate(correctPhase, targetLanguage);
-        console.log(correctPhase);
-        console.log(translated);
+
         this.correctedPhase = correctPhase;
         this.lastTraduction = translated;
 
