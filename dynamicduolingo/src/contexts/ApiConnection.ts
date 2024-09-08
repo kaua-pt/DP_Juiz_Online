@@ -1,16 +1,32 @@
 import axios from 'axios';
 import config from '../config/config';
-import { ETargetLanguages } from '../interfaces/ETargetLanguages';
 import { IApiConnection } from './IApiConnection';
+import { ETargetLanguages } from '../enums/ETargetLanguages';
 
 export default class ApiConnection implements IApiConnection {
     async translate(phrase: string, targetLanguage: ETargetLanguages): Promise<string> {
+
+        const params = {
+            text: phrase,
+            source_lang: 'pt',
+            target_lang: targetLanguage.toString()
+        };
         try {
-            const sufix = `text=${phrase}&source_lang=br&target_lang=fr`;
-            const response = await axios.get(config.TRANSLATE_API_URL + sufix);
-            return response.data.text[0]
+            let result = null;
+            const url = new URL(config.TRANSLATE_API_URL);
+            url.search = new URLSearchParams(params).toString();
+
+            const response = await fetch(url);
+            if (response.ok)
+                result = await response.json();
+            else
+                return '';
+
+            if (result !== null)
+                return result['response']['translated_text'];
+            return '';
         } catch (error) {
-            console.error('Erro ao fazer a requisição:', error);
+            console.error('Error:', error);
             return '';
         }
     }

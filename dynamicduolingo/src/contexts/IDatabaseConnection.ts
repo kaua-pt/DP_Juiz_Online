@@ -1,3 +1,3 @@
 interface IDatabaseConnection {
-    GetWord(parameter: string): string[];
+    GetWord(parameter: string): Promise<string[]>;
 }

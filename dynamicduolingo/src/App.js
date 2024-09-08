@@ -1,10 +1,11 @@
 import './App.css';
+import { ETargetLanguages } from './enums/ETargetLanguages';
 import DynamicDuolingo from './services/Translate'
 
 function App() {
   const tradutor = new DynamicDuolingo();
 
-  const translate = (str, len = 'PtBr') => {
+  const translate = (str = "imao do ceu", len = ETargetLanguages.French) => {
     tradutor.translate(str, len)
   }
 
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      {translate('hello')}
+      {translate()}
     </div>
   );
 }
