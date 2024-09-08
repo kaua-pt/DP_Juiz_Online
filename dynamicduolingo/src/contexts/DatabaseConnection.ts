@@ -32,19 +32,17 @@ export default class DatabaseConnection implements IDatabaseConnection {
             if (currentLine.startsWith(char)) {
                 foundIndex = mid;
                 break;
-            } else if (currentLine < char) {
+            } else if (currentLine < char)
                 left = mid + 1;
-            } else {
+            else
                 right = mid - 1;
-            }
         }
 
         if (foundIndex === null)
             return [];
 
-        const start = Math.max(0, foundIndex - 15);
-        const end = Math.min(lines.length - 1, foundIndex + 15);
-
+        const start = Math.max(0, foundIndex - 100021);
+        const end = Math.min(lines.length - 1, foundIndex + 100021);
         return lines.slice(start, end + 1);
     }
 }

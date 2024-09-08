@@ -14,7 +14,7 @@ const HomePage = () => {
     const [text, setText] = useState({
         original: '',
         translated: '',
-        newLanguage: ETargetLanguages.English, 
+        newLanguage: ETargetLanguages.English,
     });
 
     const [loading, setLoading] = useState(false);
@@ -24,22 +24,21 @@ const HomePage = () => {
         setLoading(true);
         try {
             const translated = await tradutor.translate(text.original, text.newLanguage);
-            setText({...text, translated: translated});
+            setText({ ...text, translated: translated });
         } catch (error) {
             console.error("Erro ao traduzir:", error);
-            return null; 
+            return null;
         }
         setLoading(false);
     };
 
-    console.log(text)
 
     return (
         <div className="grid w-full h-screen grid-cols-2 gap-4 p-4 pb-20 bg-beige">
             <div className="w-full">
                 <form onSubmit={translate}>
                     <header className="flex items-center gap-4 pb-4">
-                        <select 
+                        <select
                             className="p-2 border-2 outline-none shadow-bottom-primary rounded-xl border-gray bg-orange"
                             name="sourceLanguage"
                             defaultValue="pt"
@@ -48,20 +47,20 @@ const HomePage = () => {
                             <option key='pt' className="bg-beige" value='pt'>Português</option>
                         </select>
                         <img className="h-8" src={arrow} alt='seta' />
-                        <select 
+                        <select
                             className="p-2 border-2 outline-none cursor-pointer shadow-bottom-primary rounded-xl border-gray bg-blue"
                             name="newLanguage"
                             value={text.newLanguage}
-                            onChange={e => setText({...text, newLanguage: e.target.value})}
+                            onChange={e => setText({ ...text, newLanguage: e.target.value })}
                         >
-                            {languageOptions.map(({ language, abbreviation , index}) => (
-                                <option  className="bg-beige" value={abbreviation}>
+                            {languageOptions.map(({ language, abbreviation, index }) => (
+                                <option className="bg-beige" value={abbreviation}>
                                     {language}
                                 </option>
                             ))}
                         </select>
-                        <button     
-                            className="p-2 border-2 rounded-full outline-none cursor-pointer shadow-bottom-primary border-gray bg-green" 
+                        <button
+                            className="p-2 border-2 rounded-full outline-none cursor-pointer shadow-bottom-primary border-gray bg-green"
                             type="submit"
                         >
                             Traduzir
@@ -73,13 +72,13 @@ const HomePage = () => {
                         className="w-full h-full text-lg whitespace-normal outline-none min-h-[274px]"
                         type='text'
                         value={text.original}
-                        onChange={(e) => setText({...text, original: e.target.value})}
+                        onChange={(e) => setText({ ...text, original: e.target.value })}
                         placeholder="Insira o texto..."
                         onKeyDown={(e) => {
                             if (e.key === "Enter") {
-                              translate(e); // Chama a função de tradução
+                                translate(e); // Chama a função de tradução
                             }
-                          }}
+                        }}
                     />
                 </div>
             </div>
