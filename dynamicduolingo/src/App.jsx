@@ -12,3 +12,5 @@ const App = () => {
 }
 
 export default App;
+
+// renderiza as telas
