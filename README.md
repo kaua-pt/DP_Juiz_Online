@@ -13,6 +13,7 @@
 ## Sobre 
 Este projeto é o Dynamic duolingo, ele tem como objetivo realizar a tradução de um texto para outro mesmo com o usuário errando algumas palavras. Para isso, ele utiliza o algoritmo de alinhamento
 de sequencia em conjunto com um banco de palavras da lingua portuguesa afim de arrumar o input do usuário. Com isso, ele passa a frase corrigida para uma API de tradução.
+Para acessar o vídeo, clique [aqui]().
 
 ## Screenshots
 1 - Tela principal:
