@@ -1,4 +1,4 @@
-# D&C_JuizOnline
+# PD_DynamicDuolingo
 
 **Número da Lista**: 5<br>
 **Conteúdo da Disciplina**: PD<br>
@@ -11,58 +11,37 @@
 | 18/0030736  |  Carla de Araújo|
 
 ## Sobre 
-Este repositório tem como objetivo a realização de exercícios de D&C do site [leetcode](https://leetcode.com/), seguem os exercícios solucionados com seus respectivos vídeos:
-
-1 - [](): Hard. [Vídeo]()
-</br>
-2 - [Unique path](https://leetcode.com/problems/unique-paths/description/): Medium [Vídeo]()
-</br>
-3 - [](): Hard. [Vídeo]()
-</br>
-4 - [](): Medium. [Vídeo]()
+Este projeto é o Dynamic duolingo, ele tem como objetivo realizar a tradução de um texto para outro mesmo com o usuário errando algumas palavras. Para isso, ele utiliza o algoritmo de alinhamento
+de sequencia em conjunto com um banco de palavras da lingua portuguesa afim de arrumar o input do usuário. Com isso, ele passa a frase corrigida para uma API de tradução.
 
 ## Screenshots
-As imagens 1 à 4 evidenciam as screenshots dos códigos que foram aceitos pelo site:
+1 - Tela principal:
 
-##### 1 - 
-![]()
-<div style="text-align: center">
-<p> Imagem 1: Código aceito primeiro exercício (Fonte: Autor, 2024).</p>
-</div>
+2 - Imagem com palavras erradas:
 
-##### 2 - Unique path
-![](./assets/UP.png)
-
-<div style="text-align: center">
-<p> Imagem 2: Código aceito segundo exercício (Fonte: Autor, 2024).</p>
-</div>
-
-##### 3 - 
-
-![]()
-
-<div style="text-align: center">
-<p> Imagem 3: Código aceito terceiro exercício (Fonte: Autor, 2024).</p>
-</div>
-
-##### 4 - 
-
-![]()
-
-<div style="text-align: center">
-<p> Imagem 4: Código aceito quarto exercício (Fonte: Autor, 2024).</p>
-</div>
+3 - Imagem com as palavras corrigidas traduzidas para o inglês:
 
 ## Instalação 
-**Linguagem**: C++ e Python<br>
-
-Para os códigos python, execute:
-
+**Linguagem**: Typescript<br>
+**Framework**: React <br>
+1 - Clone o repositório
 ```
-python <nome do arquivo>
+git clone https://github.com/kaua-pt/PD_DynamicDuoligo.git
 ```
 
-Para os códigos em c++, execute:
-
+2 - Vá até a pasta correta
 ```
-g++ -o <nomedoarquivo>.exe ./<nomedoarquivo>.cpp
+cd ./src
+```
+
+3 - Instale as dependências
+```
+npm i
+```
+
+4 - Rode a aplicação
+```
+npm start 
+```
+## Uso 
+Apenas digite a frase que queira traduzir sem se importar muito com as palavras, então clique em traduzir ;).
